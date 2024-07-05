@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            job application form
+        </title>
+        <style>
+*{
+    margin: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+.apply_box{
+    max-width: 600px;
+    padding: 0%;
+    margin: 0px auto;
+    margin-top: 100px;
+    border-radius: 10px;
+    background-color: aquamarine;
+}
+.apply_box h1{
+    font-size: 50px;
+    color: rgb(47, 102, 255);
+}
+.web{
+    font-size: 20px;
+}
+.container{
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+.form_control{
+    display: flex;
+    flex-direction: column;
+}
+label{
+    font-size: 30px;
+}
+input, select, textarea{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+input:focus{
+    outline-color: aquamarine;
+}
+.submit{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 20px;
+    margin-bottom: 50px;
+}
+button{
+    background-color: rgb(208, 255, 0);
+    border: transparent solid 2px;
+    padding: 15px 20px;
+    font-size: 20px;
+
+}
+button:hover{
+    background-color: aquamarine;
+    border: solid 2px greenyellow;
+}
+        </style>
+    </head>
+    <body>
+        <div class="form">
+            <div class="apply_box">
+                <h1>Job Application <span class="web">(Web)</span></h1>
+                <form action="{% url 'result' %}" method='POST'>
+                    {% csrf_token %}
+                    <div class="container">
+                        <div class="form_control">
+                            <label for="first_name">
+                                First Name
+                            </label>
+                            <input id="first_name" required name="first" placeholder="Enter your First Name..."/>
+                        </div>
+                        <div class="form_control">
+                            <label for="second_name">
+                                Last Name
+                            </label>
+                            <input id="second_name" required name="last" placeholder="Enter your Last Name..."/>
+                        </div>
+                        <div class="form_control">
+                            <label for="Email">
+                                Email
+                            </label>
+                            <input  type="email" required name="email" id="Email" placeholder="Enter your Email..."/>
+                        </div>
+                        <div class="form_control">
+                            <label for="job_role">
+                                Job Role
+                            </label>
+                            <select id="job" name="job" required >
+                                <option aria-required="true">select job role</option>
+                                <option aria-required="true">Frontend</option>
+                                <option aria-required="true">Backend</option>
+                                <option aria-required="true">Full stack Web Devlopment</option>
+                                <option aria-required="true">UI UX Designer</option>
+
+                            </select>
+                            
+                        </div>
+                        <div class="form_control">
+                            <label for="Address">Address</label>
+                            <textarea id="Address" required rows="3" cols="70" name="address" placeholder="Enter your Address"></textarea>
+                           
+                        </div>
+                        <div class="form_control">
+                            <label for="city">
+                                City 
+                            </label>
+                            <input required id="city" name="cityy" placeholder="Enter your City Name..."/>
+                        </div>
+                        <div class="form_control">
+                            <label for="pincode">
+                               Pincode
+                            </label>
+                            <input required id="pincode" name="pinn" type="number" placeholder="Enter pincode no. ..."/>
+                        </div>
+                        <div class="form_control">
+                            <label for="date">
+                                Date
+                            </label>
+                            <input required type="date" id="date" name="datee" placeholder="Enter Date..."/>
+                        </div>
+                        {% comment %} <div class="form_control">
+                            <label for="upload">
+                                Upload CV
+                            </label>
+                            <input type="file" id="upload" placeholder="Upload your CV... "/>
+                        </div> {% endcomment %}
+                    </div>
+                    <div class="submit">
+                        <button type="submit">Apply Now</button>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+
+    </body>
+</html>
