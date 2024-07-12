@@ -71,7 +71,8 @@ button:hover{
         <div class="form">
             <div class="apply_box">
                 <h1>Job Application <span class="web">(Web)</span></h1>
-                <form action="{% url 'result' %}" method='POST'>
+                <form method='POST'>
+                    {% comment %} resut will used when you want to print the all infor {% endcomment %}
                     {% csrf_token %}
                     <div class="container">
                         <div class="form_control">
@@ -86,6 +87,8 @@ button:hover{
                             </label>
                             <input id="second_name" required name="last" placeholder="Enter your Last Name..."/>
                         </div>
+
+
                         <div class="form_control">
                             <label for="Email">
                                 Email
@@ -121,7 +124,7 @@ button:hover{
                             <label for="pincode">
                                Pincode
                             </label>
-                            <input required id="pincode" name="pinn" type="number" placeholder="Enter pincode no. ..."/>
+                            <input required id="pincode" name="pin" type="number" placeholder="Enter pincode no. ..."/>
                         </div>
                         <div class="form_control">
                             <label for="date">
@@ -137,7 +140,7 @@ button:hover{
                         </div> {% endcomment %}
                     </div>
                     <div class="submit">
-                        <button type="submit">Apply Now</button>
+                        <button type="submit" value='submit'>Apply Now</button>
                     </div>
                 </form>
 

@@ -22,5 +22,4 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", views.form),
     path("reuslt/", views.result, name='result'),
-
 ]
